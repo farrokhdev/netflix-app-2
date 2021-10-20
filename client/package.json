@@ -20,7 +20,8 @@
     "react-slick": "^0.28.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.1",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "babel-plugin-styled-components": "^1.13.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,9 +47,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "babel-plugin-styled-components": "^1.13.2"
-  },
+  "devDependencies": {},
   "plugins": [
     [
       "babel-plugin-styled-components",
