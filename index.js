@@ -6,6 +6,8 @@ const userRoute = require("./routes/users");
 const movieRoute = require("./routes/movies");
 const listRoute = require("./routes/list");
 
+const path = require("path");
+
 // MOGOOSE PACAGE FOR MONGODB CONNECTION !!!
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
@@ -29,6 +31,7 @@ app.use("/api/users", userRoute);
 app.use("/api/movie", movieRoute);
 app.use("/api/list", listRoute);
 
+// app.use(express.static("/client/build"));
 app.use(express.static(path.join(__dirname, "/client/build")));
 
 app.get("*", (req, res) => {
