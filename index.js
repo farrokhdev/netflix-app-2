@@ -6,7 +6,7 @@ const userRoute = require("./routes/users");
 const movieRoute = require("./routes/movies");
 const listRoute = require("./routes/list");
 
-const path = require("path");
+// const path = require("path");
 
 // MOGOOSE PACAGE FOR MONGODB CONNECTION !!!
 const mongoose = require("mongoose");
@@ -31,13 +31,19 @@ app.use("/api/users", userRoute);
 app.use("/api/movie", movieRoute);
 app.use("/api/list", listRoute);
 
-// app.use(express.static("/client/build"));
-app.use(express.static(path.join(__dirname, "/client/build")));
+// app.use(express.static(path.join(__dirname, "/client/build")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "/client/build", "index.html"));
+// });
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("/client/build"));
+  const path = require("path");
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 // APP CONNECTING ON PORT
 app.listen(process.env.PORT || 8800, () => {
   console.log("the app is running");
