@@ -1,4 +1,4 @@
-const Jwt = require("jsonWebToken");
+const Jwt = require("jsonwebtoken");
 
 const verifyToken = (req, res, next) => {
   const headerToken = req.headers.token;
