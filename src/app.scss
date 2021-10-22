@@ -1,0 +1,25 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /*=10px*/
+}
+
+// globals
+$primary: #1e2749;
+$secondary: #273469;
+$third: #082d0f;
+$forth: #489fb5;
+$fifth: #82c0cc;
+$white: #ffffff;
+$black: #000000;
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: $white;
+}
