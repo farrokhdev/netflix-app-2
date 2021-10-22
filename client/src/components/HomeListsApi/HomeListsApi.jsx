@@ -9,11 +9,11 @@ export const HomeListsApi = ({ type }) => {
 
   return (
     <>
-      <HomeListsSec>
-        return (
-        <List movies250={movies250} type={type} />
-        );
-      </HomeListsSec>
+      {movies250 && (
+        <HomeListsSec>
+          <List movies250={movies250} type={type} />
+        </HomeListsSec>
+      )}
     </>
   );
 };

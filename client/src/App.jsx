@@ -31,58 +31,59 @@ function App() {
     <>
       <Router>
         <HomeProvider>
-          <Navbar user={user} />
-          <AnimatePresence exitBeforeEnter initial={false}>
-            <Switch>
-              {/* REGISTER ROUTE  */}
+          <ApiHomeProvider>
+            <Navbar user={user} />
+            <AnimatePresence exitBeforeEnter initial={false}>
+              <Switch>
+                {/* REGISTER ROUTE  */}
 
-              <Route exact path="/register">
-                {user ? <Redirect to="/" /> : <Register />}
-              </Route>
-              {/* LOGIN ROUTE  */}
-              <Route exact path="/login">
-                {user ? <Redirect to="/" /> : <Login />}
-              </Route>
-              {/* HOME ROUTES  */}
-              {!user ? (
-                <Redirect to="/register/" />
-              ) : (
-                <>
-                  <Route exact path="/">
-                    <Home type="" />
-                  </Route>
-                  <Route exact path="/movies">
-                    <Home type="movies" />
-                  </Route>
-                  <Route exact path="/series">
-                    <Home type="series" />
-                  </Route>
-                  <Route exact path="/single/:title">
-                    <Single />
-                  </Route>
-                  <Route exact path="/single/:title/info">
-                    <SingleInfo />
-                  </Route>
-                  <Route exact path="/single/:title/video">
-                    <SingleVideo />
-                  </Route>
-                </>
-              )}
-              {/* HOME API ROUTES  */}
-              <ApiHomeProvider>
-                <Route exact path="/movies/250imdb">
-                  <HomeApi type="movies" />
+                <Route exact path="/register">
+                  {user ? <Redirect to="/" /> : <Register />}
                 </Route>
-                <Route exact path="/series/250imdb">
-                  <HomeApi type="series" />
+                {/* LOGIN ROUTE  */}
+                <Route exact path="/login">
+                  {user ? <Redirect to="/" /> : <Login />}
                 </Route>
-              </ApiHomeProvider>
-              {/* NOT FOUND ROUTE  */}
-              <Route path="*">
-                <NotFound />
-              </Route>
-            </Switch>
-          </AnimatePresence>
+                {/* HOME ROUTES  */}
+                {!user ? (
+                  <Redirect to="/register/" />
+                ) : (
+                  <>
+                    <Route exact path="/">
+                      <Home type="" />
+                    </Route>
+                    <Route exact path="/movies">
+                      <Home type="movies" />
+                    </Route>
+                    <Route exact path="/series">
+                      <Home type="series" />
+                    </Route>
+                    <Route exact path="/single/:title">
+                      <Single />
+                    </Route>
+                    <Route exact path="/single/:title/info">
+                      <SingleInfo />
+                    </Route>
+                    <Route exact path="/single/:title/video">
+                      <SingleVideo />
+                    </Route>
+                    {/* HOME API ROUTES  */}
+                    <Route exact path="/movies/250imdb">
+                      <HomeApi type="movies" />
+                    </Route>
+                    <Route exact path="/series/250imdb">
+                      <HomeApi type="series" />
+                    </Route>
+                  </>
+                )}
+
+                {/* NOT FOUND ROUTE  */}
+                <Route path="*">
+                  <NotFound />
+                </Route>
+              </Switch>
+            </AnimatePresence>
+          </ApiHomeProvider>
         </HomeProvider>
       </Router>
     </>
