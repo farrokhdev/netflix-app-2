@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
+import { axiosInstance } from "config";
 import { useLocation } from "react-router-dom";
 
 export const ApiHomeContext = React.createContext();
@@ -17,20 +17,10 @@ export const ApiHomeProvider = ({ children }) => {
 
   console.log(apiPath);
 
-  // const options = {
-  //   method: "GET",
-  //   url: "https://movies-tvshows-data-imdb.p.rapidapi.com/",
-  //   params: { type: "get-popular-movies", page: "1", year: "2020" },
-  //   headers: {
-  //     "x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com",
-  //     "x-rapidapi-key": "7126b80b53msh268cc609312c61bp11a8e6jsne0a8e5df77ec",
-  //   },
-  // };
-
   const fetchMovies = async () => {
     if (apiPath === "movies") {
       try {
-        await axios.get(movieUrl).then((res) => {
+        await axiosInstance.get(movieUrl).then((res) => {
           const movies = res.data.items;
           // console.log(movies);
           setMovies250(movies);
@@ -41,7 +31,7 @@ export const ApiHomeProvider = ({ children }) => {
     }
     if (apiPath === "series") {
       try {
-        await axios.get(sieriesUrl).then((res) => {
+        await axiosInstance.get(sieriesUrl).then((res) => {
           const series = res.data.items;
           // console.log(movies);
           setMovies250(series);
