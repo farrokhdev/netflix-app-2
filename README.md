@@ -1,3 +1,5 @@
 # Admin pasnel for netflix clone App
 
-#### panel Link >> https://netflix1-app.herokuapp.com/
+#### project Link >> https://netflix1-app.herokuapp.com/
+
+#### admin panel Link >> https://netflix-admin-panel.herokuapp.com/
