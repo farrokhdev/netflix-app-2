@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useMediaQuery } from "react-responsive";
-import { device } from "../../../responsive";
-import { ListSec, ListTitle, ListWrapper } from "./StyleList";
+import React from "react";
+import { device } from "responsive/device";
+import { ListSec, ListTitle } from "./StyleList";
 import { Movie } from "./Movie/Movie";
 
 // FOR SLICK SLIDER
@@ -9,7 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-export const List = ({ list, type, loading }) => {
+export const List = ({ list }) => {
   const movieIds = list.content;
   console.log(movieIds);
 
@@ -28,27 +27,35 @@ export const List = ({ list, type, loading }) => {
     // nextArrow: <ArrowForwardIos />,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: device.laptop,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
+          slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: device.tablet,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: device.mobileL,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: device.mobileM,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: device.mobileS,
+        settings: {
+          slidesToShow: 1,
         },
       },
     ],

@@ -14,7 +14,6 @@ import { useApiHomeContext } from "../../context/ApiHomeContext/ApiHomeContext";
 import { Link } from "react-router-dom";
 
 export const HomeHeroApi = ({ type }) => {
-  const { singleMovie } = useHomeContext();
   const { movies250 } = useApiHomeContext();
 
   return (

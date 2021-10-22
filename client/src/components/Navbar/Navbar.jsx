@@ -1,6 +1,5 @@
 import React from "react";
 import netflixLogo from "../../images/logo/netflix-logo.png";
-import profileImg from "../../images/profile/1.jpg";
 import { VpnKey } from "@material-ui/icons";
 import { menusItems } from "../../datas";
 import { colors } from "../../Variables";
@@ -60,16 +59,18 @@ export const Navbar = ({ user }) => {
               </Menu>
             )}
             <Welcome>
-              <p>
-                Welcome <span>New User</span>
-              </p>
-              <ProfileImg>
-                <ImgFit src={profileImg} alt="profile" />
-              </ProfileImg>
               {user ? (
-                <Link to="/login" onClick={logoutHandler}>
-                  <SignBtn>Log out</SignBtn>
-                </Link>
+                <>
+                  <p>
+                    Welcome <span>{user.username}</span>
+                  </p>
+                  <ProfileImg>
+                    <ImgFit src={user.profilePic} alt="profile" />
+                  </ProfileImg>
+                  <Link to="/login" onClick={logoutHandler}>
+                    <SignBtn>Log out</SignBtn>
+                  </Link>
+                </>
               ) : (
                 <>
                   <Link to="/login">
