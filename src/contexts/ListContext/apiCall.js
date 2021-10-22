@@ -1,4 +1,4 @@
-import axios from "axios";
+import { axiosInstance } from "config";
 import {
   GetListStart,
   GetListSuccess,
@@ -14,7 +14,7 @@ import {
 export const ListApi = async (dispatch) => {
   dispatch(GetListStart());
   try {
-    const res = await axios.get("list/", {
+    const res = await axiosInstance.get("list/", {
       headers: {
         token: "barear " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
@@ -30,7 +30,7 @@ export const ListApi = async (dispatch) => {
 export const DeleteListApi = async (id, dispatch) => {
   dispatch(DeleteListStart());
   try {
-    await axios.delete("list/" + id, {
+    await axiosInstance.delete("list/" + id, {
       headers: {
         token: "barear " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
@@ -45,7 +45,7 @@ export const DeleteListApi = async (id, dispatch) => {
 export const CreateListApi = async (list, dispatch) => {
   dispatch(CreateListStart());
   try {
-    const res = await axios.post("list", list, {
+    const res = await axiosInstance.post("list", list, {
       headers: {
         token: "barear " + JSON.parse(localStorage.getItem("user")).accessToken,
       },

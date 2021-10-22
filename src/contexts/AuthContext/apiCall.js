@@ -1,10 +1,10 @@
-import axios from "axios";
+import { axiosInstance } from "config";
 import { LoginStart, LoginSuccess, LoginFailed, Logout } from "./AuthAction";
 
 export const loginApi = async (userInfo, dispatch) => {
   dispatch(LoginStart());
   try {
-    const res = await axios.post("auth/login", userInfo);
+    const res = await axiosInstance.post("auth/login", userInfo);
 
     res.data.isAdmin && dispatch(LoginSuccess(res.data));
   } catch (err) {

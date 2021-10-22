@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import axios from "axios";
+import { axiosInstance } from "config";
 
 export const HomeContext = React.createContext();
 export const HomeProvider = ({ children }) => {
@@ -31,7 +31,7 @@ export const HomeProvider = ({ children }) => {
   useEffect(() => {
     const getUserMonthly = async () => {
       try {
-        const res = await axios.get("users/stats/month", {
+        const res = await axiosInstance.get("users/stats/month", {
           headers: {
             token:
               "barear " + JSON.parse(localStorage.getItem("user")).accessToken,
@@ -54,7 +54,7 @@ export const HomeProvider = ({ children }) => {
   useEffect(() => {
     const getUserDaily = async () => {
       try {
-        const res = await axios.get("users/stats/today", {
+        const res = await axiosInstance.get("users/stats/today", {
           headers: {
             token:
               "barear " + JSON.parse(localStorage.getItem("user")).accessToken,
@@ -71,7 +71,7 @@ export const HomeProvider = ({ children }) => {
   useEffect(() => {
     const getUserYearly = async () => {
       try {
-        const res = await axios.get("users/stats/year", {
+        const res = await axiosInstance.get("users/stats/year", {
           headers: {
             token:
               "barear " + JSON.parse(localStorage.getItem("user")).accessToken,
@@ -89,7 +89,7 @@ export const HomeProvider = ({ children }) => {
   // get all movies for create list
   useEffect(async () => {
     try {
-      const res = await axios.get("movie/all", {
+      const res = await axiosInstance.get("movie/all", {
         headers: {
           token:
             "barear " + JSON.parse(localStorage.getItem("user")).accessToken,
