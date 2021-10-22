@@ -4,10 +4,8 @@ import { useLocation } from "react-router-dom";
 
 export const ApiHomeContext = React.createContext();
 
-const movieUrl =
-  "https://imdb-api.com/en/API/Top250Movies/pk_ym4fuc6c4u2mvc7fa";
-const sieriesUrl =
-  "https://imdb-api.com/en/API/Top250Movies/pk_ym4fuc6c4u2mvc7fa";
+const movieUrl = "https://imdb-api.com/en/API/Top250Movies/k_fpg7d5gg";
+const sieriesUrl = "https://imdb-api.com/en/API/Top250Movies/k_fpg7d5gg";
 console.log(movieUrl);
 
 export const ApiHomeProvider = ({ children }) => {
