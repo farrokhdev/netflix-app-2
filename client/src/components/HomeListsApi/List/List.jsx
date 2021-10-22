@@ -1,7 +1,6 @@
 import React from "react";
 import { ListSec, ListWrapper } from "./StyleList";
 import { Movie } from "./Movie/Movie";
-import { KeyboardArrowLeft, KeyboardArrowRight } from "@material-ui/icons";
 
 export const List = ({ movies250, type }) => {
   return (

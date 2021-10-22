@@ -51,10 +51,10 @@ function App() {
                   <Route exact path="/">
                     <Home type="" />
                   </Route>
-                  <Route path="/movies">
+                  <Route exact path="/movies">
                     <Home type="movies" />
                   </Route>
-                  <Route path="/series">
+                  <Route exact path="/series">
                     <Home type="series" />
                   </Route>
                   <Route exact path="/single/:title">

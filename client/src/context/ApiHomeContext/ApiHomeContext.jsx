@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { axiosInstance } from "config";
+import axios from "axios";
 import { useLocation } from "react-router-dom";
 
 export const ApiHomeContext = React.createContext();
@@ -20,7 +20,7 @@ export const ApiHomeProvider = ({ children }) => {
   const fetchMovies = async () => {
     if (apiPath === "movies") {
       try {
-        await axiosInstance.get(movieUrl).then((res) => {
+        await axios.get(movieUrl).then((res) => {
           const movies = res.data.items;
           // console.log(movies);
           setMovies250(movies);
@@ -31,7 +31,7 @@ export const ApiHomeProvider = ({ children }) => {
     }
     if (apiPath === "series") {
       try {
-        await axiosInstance.get(sieriesUrl).then((res) => {
+        await axios.get(sieriesUrl).then((res) => {
           const series = res.data.items;
           // console.log(movies);
           setMovies250(series);
